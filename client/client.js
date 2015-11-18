@@ -322,6 +322,9 @@ function pushMessage(args, usePre) {
 		}
 	}
 
+
+	
+
 	if (links.length != 0) {
 		messageEl.appendChild(parseMedia());
 	}
