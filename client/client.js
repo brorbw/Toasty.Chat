@@ -1,7 +1,6 @@
 var userIgnore; // public function
 var send;
 $(function() {
-//just some commet
 
 $("#link-block").hide();
 var frontpage = [
