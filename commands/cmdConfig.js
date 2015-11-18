@@ -28,9 +28,6 @@ var init = function(bot)
 
 var configCmd = function(bot, sender, args)
 {
-	if(bot.requirePerm(sender, "config"))
-		return;
-
 	args[0] = args[0] || "";
 
 	if(args[0] == "set" && typeof args[1] != 'undefined' && typeof args[2] != 'undefined')
@@ -87,7 +84,7 @@ var configCmd = function(bot, sender, args)
 			if(!bot.config.hasOwnProperty(key))
 				continue;
 
-			fs.writeFile("./src/data/" + key + ".json", JSON.stringify(bot.config[key], undefined, 4), function(err)
+			fs.writeFile("./data/" + key + ".json", JSON.stringify(bot.config[key], undefined, 4), function(err)
 			{
 				if(err)
 					throw err;
