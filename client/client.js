@@ -264,6 +264,8 @@ function pushMessage(args, usePre) {
 				tripEl.textContent = "00010111 ";
 			else if (args.trip.substr(0,6) == "fen7JY")
 				tripEl.textContent = "3600 ";
+			else if (args.trip.substr(0,6) == "uYjoMC")
+				tripEl.textContent = "nono "; //just because i wann feel special
 			else
 				tripEl.textContent = args.trip.substr(0,6) + " "
 			tripEl.classList.add('trip')
@@ -306,12 +308,12 @@ function pushMessage(args, usePre) {
 			messageEl.classList.add('mention');
 	else if (!(args.nick == '!' || args.nick == '*' || args.nick == '<Server>')) {
 		for(var nick in onlineUsers) {
-			if (args.text.indexOf(nick) != -1) {
+			if (args.text.indexOf("@" + nick) != -1) { //dont know if it's neede but @ + nick should remove the case where a name is made into a tag
 				var user = document.createElement('span');
 				user.textContent = "@" + nick;
 				user.style.color = onlineUsers[nick];
 				try{
-					textEl.outerHTML = textEl.outerHTML.replace("@" + nick, user.outerHTML);
+					textEl.outerHTML = textEl.outerHTML.replace("@" + nick, user.outerHTML));
 				}
 				catch(err) {
 					console.log(err.message);
