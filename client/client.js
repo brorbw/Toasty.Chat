@@ -308,7 +308,7 @@ function pushMessage(args, usePre) {
 				user.textContent = "@" + nick;
 				user.style.color = onlineUsers[nick];
 				try{
-					textEl.outerHTML = textEl.outerHTML.replace("@" + nick, user.outerHTML));
+					textEl.outerHTML = textEl.outerHTML.replace("@" + nick, user.outerHTML);
 				}
 				catch(err) {
 					console.log(err.message);
@@ -318,7 +318,7 @@ function pushMessage(args, usePre) {
 	}
 
 
-	
+
 
 	if (links.length != 0) {
 		messageEl.appendChild(parseMedia());
