@@ -4,11 +4,9 @@
 */
 var venv = {
 };
-//parser for javascript;
-//var aVar = /\var [a-z]*;
 
 function setVariable(name, value){
-  if(value == null){
+  if(value === null){
     venv[name] = "";
   } else {
     venv[name] = value;
@@ -23,13 +21,18 @@ function forSimpleLoop(left, right, oper, code){
   var val = 0;
   while(ifCompare(left, right, oper)){
     if(val >= 10){
-      return "No more that 10 iterations in a for loop";
+      setVariable(right)
+      return "No more than 10 iterations in a for loop";
     }
     val += 0;
     evalCode(code); //this is not at all correct
   }
-
 }
+
+function whileLoop(left, right, oper, code){
+  
+}
+
 //main entry to the script
 function evalCode(code){
   //this is where you figure out what kind of expression the code is.
@@ -57,15 +60,15 @@ function ifCompare(leftIn, rightIn, oper){
     } else {return false;}
   } else if(oper == ">"){
     if(left > right){
-      return true
+      return true;
     } else {return false;}
   }else if(oper == ">="){
     if(left >= right){
-      return true
+      return true;
     } else {return false;}
   }else if(oper == "<="){
     if(left <= right){
-      return true
+      return true;
     } else {return false;}
   } else if(oper == "=="){
     if(left == right){
@@ -80,7 +83,7 @@ function ifCompare(leftIn, rightIn, oper){
 //math operations
 function numOp(left, right, oper){
   if(typeof left != 'number' || typeof right != 'number'){
-    return "Illigal operation: Expected a number";
+    return "Illegal operation: Expected a number";
   }
   if(oper == "+"){
     return left + right;
@@ -89,22 +92,22 @@ function numOp(left, right, oper){
   } else if (oper == "*"){
     return left * right;
   } else if (oper == "/"){
-    if(right != 0){
+    if(right !== 0){
       return left / right;
     } else {
-      return "Deviding by zero";
+      return "Dividing by zero";
     }
   } else if (oper == "^"){
     return Math.pow(left,right);
   } else {
-    return "Illigal operation: Not a valid math operator";
+    return "Illegal operation: Not a valid math operator";
   }
 }
 //string concat
 function stringOp(left, right, oper){
   if(typeof left != 'string' || typeof right != 'string'){
-    return "Illigal operation: Can not concatinate non string types";
+    return "Illegal operation: Can not concatenate non string types";
   } else {
-    return left + right
+    return left + right;
   }
 }
