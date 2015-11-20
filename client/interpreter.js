@@ -1,5 +1,5 @@
 /*
-* this script is desighed to take "code of a special format IR trees. Or when "
+* this script is desighed to take "code" of a special format - IR trees.
 *
 */
 var venv = {
@@ -30,7 +30,7 @@ function forSimpleLoop(left, right, oper, code){
 }
 
 function whileLoop(left, right, oper, code){
-  
+
 }
 
 //main entry to the script
