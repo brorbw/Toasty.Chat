@@ -71,7 +71,7 @@ function ifCompare(leftIn, rightIn, oper){
 }
 function binOp(left, right, oper){
   if(typeof left != 'number' || typeof right != 'number'){
-    return "Illigal operation: Adding non number type";
+    return "Illigal operation: Expected a number";
   }
   if(oper == "+"){
     return left + right;
@@ -91,7 +91,11 @@ function binOp(left, right, oper){
     return "Illigal operation: Not a valid math operator";
   }
 }
+//string concat
 function stringOp(left, right, oper){
-  if(typeof left != 'string', )
+  if(typeof left != 'string' || typeof right != 'string'){
+    return "Illigal operation: Can not concatinate non string types";
+  } else {
+    return left + right
+  }
 }
-//missing implementation is when there is more that one thing in the if
