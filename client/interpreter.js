@@ -1,3 +1,7 @@
+/*
+* this script is desighed to take "code of a special format IR trees. Or when "
+*
+*/
 var venv = {
 };
 //parser for javascript;
@@ -14,22 +18,26 @@ function setVariable(name, value){
 function getVariable(name){
   return venv[name];
 }
-
+//inside a for loop
 function forSimpleLoop(left, right, oper, code){
   var val = 0;
   while(ifCompare(left, right, oper)){
-    setVariable(left,(getVariable(left)+1));
+    if(val >= 10){
+      return "No more that 10 iterations in a for loop";
+    }
     val += 0;
+    evalCode(code); //this is not at all correct
   }
-  return val;
-}
 
+}
+//main entry to the script
 function evalCode(code){
   //this is where you figure out what kind of expression the code is.
   setVariable("a", 3);
   return forSimpleLoop("a", 6, "<","");
 }
 
+//if statement
 function ifCompare(leftIn, rightIn, oper){
   var left;
   var right;
@@ -69,7 +77,8 @@ function ifCompare(leftIn, rightIn, oper){
     } else {return false;}
   }
 }
-function binOp(left, right, oper){
+//math operations
+function numOp(left, right, oper){
   if(typeof left != 'number' || typeof right != 'number'){
     return "Illigal operation: Expected a number";
   }
