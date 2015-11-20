@@ -2,7 +2,6 @@ var userIgnore; // public function
 var send;
 $(function() {
 
-
 $("#link-block").hide();
 var frontpage = [
 	" __                                                 ",
@@ -304,7 +303,7 @@ function pushMessage(args, usePre) {
 			messageEl.classList.add('mention');
 	else if (!(args.nick == '!' || args.nick == '*' || args.nick == '<Server>')) {
 		for(var nick in onlineUsers) {
-			if (args.text.indexOf(nick) != -1) {
+			if (args.text.indexOf("@" + nick) != -1) { //dont know if it's neede but @ + nick should remove the case where a name is made into a tag
 				var user = document.createElement('span');
 				user.textContent = "@" + nick;
 				user.style.color = onlineUsers[nick];
@@ -317,6 +316,9 @@ function pushMessage(args, usePre) {
 			}
 		}
 	}
+
+
+
 
 	if (links.length != 0) {
 		messageEl.appendChild(parseMedia());
